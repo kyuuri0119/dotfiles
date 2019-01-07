@@ -34,3 +34,6 @@ set number
 
 " syntax highlight
 syntax on
+
+" 空行挿入
+noremap <Space><CR> o<ESC>
