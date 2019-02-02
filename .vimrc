@@ -34,3 +34,7 @@ set number
 
 " syntax highlight
 syntax on
+
+" esc
+inoremap <silent> jj <ESC>
+
