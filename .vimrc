@@ -38,3 +38,5 @@ syntax on
 " esc
 inoremap <silent> jj <ESC>
 
+" 空行挿入
+noremap <Space><CR> o<ESC>
