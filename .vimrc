@@ -40,3 +40,46 @@ inoremap <silent> jj <ESC>
 
 " 空行挿入
 noremap <Space><CR> o<ESC>
+
+
+
+"""
+""" NeoBundle
+"""
+
+if has('vim_starting')
+    " 初回起動時のみruntimepathにNeoBundleのパスを指定する
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+    " NeoBundleがインストールであればgit cloneする
+    if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
+        echo "install NeoBundle..."
+        :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+    endif
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" インストールするvimプラグインを以下に記述
+" NeoBundle自身を管理
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+""" ------------------------------------------------------
+" 追加したいVimプラグイン
+
+
+" インデントの可視化
+NeoBundle 'Yggdroot/indentLine'
+
+
+""" ------------------------------------------------------
+
+call neobundle#end()
+
+" ファイルタイプ別のvimプラグイン/インデントを有効にする
+filetype plugin indent on
+
+" 未インストールのvimプラグインがある場合、インストールするかどうか尋ねる設定
+NeoBundleCheck
+
+
